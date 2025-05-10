@@ -1,4 +1,3 @@
-
 const express = require('express');
 const cloudinary = require('cloudinary').v2;
 const cors = require('cors');
@@ -12,7 +11,9 @@ cloudinary.config({
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public')); // في حال وضعت index.html داخل مجلد 'public'
 
+// ✅ API routes
 app.get('/api/list-images', async (req, res) => {
   try {
     const result = await cloudinary.search
@@ -35,4 +36,8 @@ app.delete('/api/delete-image', async (req, res) => {
   }
 });
 
-module.exports = app;
+// ✅ Start the server (required by Render)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`✅ Server is running on port ${PORT}`);
+});
