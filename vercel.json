@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/list-images", "dest": "/api/list-images.js" },
+    { "src": "/delete-image", "dest": "/api/delete-image.js" }
+  ]
+}
