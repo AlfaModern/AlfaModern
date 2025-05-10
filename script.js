@@ -1,4 +1,3 @@
-
 const cloudName = 'drweim9cu';
 const uploadPreset = 'unsigned_preset'; 
 const folder = 'dashboard';
@@ -24,7 +23,7 @@ function uploadImage() {
 }
 
 function loadImages() {
-  fetch('http://localhost:3000/list-images')
+  fetch('/api/list-images')
     .then(res => res.json())
     .then(images => {
       const container = document.getElementById('images');
@@ -42,7 +41,7 @@ function loadImages() {
 }
 
 function deleteImage(publicId) {
-  fetch('http://localhost:3000/delete-image', {
+  fetch('/api/delete-image', {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
