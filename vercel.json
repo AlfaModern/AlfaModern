@@ -5,6 +5,7 @@
   ],
   "routes": [
     { "src": "/list-images", "dest": "/api/list-images.js" },
-    { "src": "/delete-image", "dest": "/api/delete-image.js" }
+    { "src": "/delete-image", "dest": "/api/delete-image.js" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
